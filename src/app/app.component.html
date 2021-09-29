@@ -1,0 +1,74 @@
+<div class="container">
+  <h1>PVU MARKETPLACE</h1>
+  <small>This list may not represent the real marketplace because the API not search new offers every second/minute  for purposes of not network's congestion.</small>
+  <br><br>
+  <h4>DONATE: 0x1BF33fCaf640c43F562391C8A5FB0fe1Bb5E1FF1 <img src="../assets/DONATE_QRCODE.png" width="90"></h4>
+
+  <small style="float: right;">Developed by: <a href="https://instagram.com/alexspmiranda" target="_blank"> https://instagram.com/alexspmiranda</a></small>
+  <br>
+  <br>
+  
+  <!-- <div style="width: 100%; text-align: right;">
+    <h5>Withdraw rate: {{tax}} </h5>
+    <button type="button" class="btn btn-danger" (click)="Reset()">Reset</button> &nbsp;
+    <button type="button" class="btn btn-success" (click)="SumRate()">+ 10%</button>
+  </div>
+
+  <br>
+  <br> -->
+
+
+  <div style="width: 100%; text-align: center;" *ngIf="Marketplace.length == 0">
+    <div class="spinner-border" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  
+  
+  <div class="card" *ngIf="Marketplace.length != 0">
+    
+    <div class="col-md-12">
+      <div style="margin: 5px;">
+        <small> &nbsp; SORT BY: </small>
+        <button type="button" class="btn btn-success" (click)="setFilter('price')">Price</button> &nbsp;
+        <button type="button" class="btn btn-success" (click)="setFilter('nftroi')">NFT ROI</button> &nbsp; 
+        <button type="button" class="btn btn-success" (click)="setFilter('withdrawroi')">WITHDRAW ROI</button> &nbsp;
+        <button type="button" class="btn btn-success" (click)="setFilter('leperhour')">LE PER HOUR</button> &nbsp;
+      </div>
+      
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Plant Type</th>
+            <th scope="col">LE/Hour</th>
+            <th scope="col">LEPerHour</th>
+            <th scope="col">LE/Month</th>
+            <th scope="col">Price</th>
+            <th scope="col">ROI by Withdraw</th>
+            <th scope="col">ROI by NFT SELL</th>
+            <th scope="col">Picture</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let marketplace of Marketplace">
+            <td>{{marketplace.Id}}</td>
+            <td>{{marketplace.PlantType}}</td>
+            <td>{{marketplace.Le}}/{{marketplace.Hour}}</td>
+            <td>{{marketplace.AverageHour}}</td>
+            <td>{{marketplace.AverageMonth}}</td>
+            <td>{{marketplace.Price}}</td>
+            <td>{{marketplace.WithdrawROI}} days</td>
+            <td>{{marketplace.NFTSellROI}} days</td>
+            <td><img src={{marketplace.Icon}} width="50"/></td>
+            <td><a href="https://marketplace.plantvsundead.com/farm#/plant/{{marketplace.Id}}" target="_blank">Ver no marketplace</a></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div style="width: 100%; text-align: center; padding: 10px;"><button type="button" class="btn btn-success" (click)="loadMore()">MORE</button></div>
